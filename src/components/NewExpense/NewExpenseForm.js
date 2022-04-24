@@ -10,26 +10,20 @@ const NewExpenseForm = () => {
   });
 
   const titleChangeHandler = (event) => {
-    setUserInput({
-      // Copy all entered inputs
-      ...userInput,
-      enteredTitle: event.target.value
+    setUserInput((prevState) => {
+      return {...prevState, enteredTitle: event.target.value};
     });
   };
 
   const amountChangeHandler = (event) => {
-    setUserInput({
-      // Copy all entered inputs
-      ...userInput,
-      enteredAmount: event.target.value
+    setUserInput((prevState) => {
+      return{...prevState, enteredAmount: event.target.value};
     });
   };
 
   const dateChangeHandler = (event) => {
-    setUserInput({
-      // Copy all entered inputs
-      ...userInput,
-      enteredDate: event.target.value
+    setUserInput((prevState) => {
+      return{...prevState, enteredDate: event.target.value}
     });
   };
 
