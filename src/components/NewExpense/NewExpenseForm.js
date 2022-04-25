@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './NewExpenseForm.css';
 
-const NewExpenseForm = () => {
+const NewExpenseForm = (props) => {
 
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
@@ -30,15 +30,14 @@ const NewExpenseForm = () => {
       date: new Date(enteredDate)
     }
 
-    // Output the object in console as tabular form
-    console.table(expenseData);
+    // Keeping the object in onSaveExpenseData function
+    props.onSaveExpenseData(expenseData);
 
     // Clearing all the inputs after form submission with the help of useState functions and react two way data binding by adding value property with all the inputs we are listening to.
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
   }
-
 
   return (
     <form onSubmit={ submitHandler }>
